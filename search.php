@@ -11,15 +11,15 @@
             "Konstantinos" => "6945873669",
             "Panos" => "6989405121",
             "Maria" => "6972891833");
-    $namesearch = '';
+    $contuctsearch = '';
 
     //check search
     if(isset($_GET['search'])){
         $ok=true;
 
-        //check if name is set
-        if(isset($_GET['namesearch']) && $_GET['namesearch'] !== ''){
-            $namesearch = $_GET['namesearch'];
+        //check if contuctsearch is set
+        if(isset($_GET['contuctsearch']) && $_GET['contuctsearch'] !== ''){
+            $contuctsearch = $_GET['contuctsearch'];
         }else{
             $ok=false;
         }
@@ -31,7 +31,7 @@
 <!-- search bar -->
 
 <form method="GET" action="">
-    <input type="search" name="namesearch" placeholder="Search" value="<?php echo $namesearch; ?>">
+    <input type="search" name="contuctsearch" placeholder="Search" value="<?php echo $contuctsearch; ?>">
     <input type="submit" name="search" value="Search">
 </form>
 
@@ -54,10 +54,12 @@
 
 <?php
 if($ok) {
-    if (array_key_exists($namesearch, $contucts)) {
-        echo $namesearch . ": " . $contucts[$namesearch];
-    } else {
-        echo htmlspecialchars($namesearch) . " is not in your contucts.";
+    if (array_key_exists($contuctsearch, $contucts)) {
+        echo $contuctsearch . ": " . $contucts[$contuctsearch];
+    } else if(in_array($contuctsearch, $contucts)){
+        echo array_search($contuctsearch, $contucts);
+        }else{
+        echo htmlspecialchars($contuctsearch) . " is not in your contucts.";
     }
 }
 ?>
