@@ -10,7 +10,8 @@
             "Ektoras" => "6959408130",
             "Konstantinos" => "6945873669",
             "Panos" => "6989405121",
-            "Maria" => "6972891833");
+            "Maria" => "6972891833",
+            "Evita" => "6976871732");
     $contuctsearch = '';
 
     //check search
@@ -55,9 +56,9 @@
 <?php
 if($ok) {
     if (array_key_exists($contuctsearch, $contucts)) {
-        echo $contuctsearch . ": " . $contucts[$contuctsearch];
+        echo htmlspecialchars($contuctsearch) . ": " . htmlspecialchars($contucts[$contuctsearch]);
     } else if(in_array($contuctsearch, $contucts)){
-        echo array_search($contuctsearch, $contucts);
+        echo htmlspecialchars(array_search($contuctsearch, $contucts));
         }else{
         echo htmlspecialchars($contuctsearch) . " is not in your contucts.";
     }
