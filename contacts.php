@@ -2,7 +2,7 @@
 
     $con = mysqli_connect('localhost', 'root', '', 'project');
 
-    $contuctsearch = '';
+    $contactsearch = '';
     $newname = '';
     $newphone = '';
 
@@ -10,20 +10,20 @@
     if(isset($_POST['add'])){
            $newname = $con->real_escape_string($_POST['newname']);
            $newphone = $con->real_escape_string($_POST['newphone']);
-           $con->query("INSERT INTO contucts (name, phone) VALUES ('$newname', '$newphone')");
+           $con->query("INSERT INTO contacts (name, phone) VALUES ('$newname', '$newphone')");
     }
 
-    $contucts = $con->query( "SELECT * FROM contucts");
+    $contacts = $con->query( "SELECT * FROM contacts");
 
     //check search
     if(isset($_GET['search'])){
         $ok=true;
 
-        //check if contuctsearch is set
-        if(isset($_GET['contuctsearch']) && $_GET['contuctsearch'] !== ''){
-            $contuctsearch = $con->real_escape_string($_GET['contuctsearch']);
+        //check if contactsearch is set
+        if(isset($_GET['contactsearch']) && $_GET['contactsearch'] !== ''){
+            $contactsearch = $con->real_escape_string($_GET['contactsearch']);
 
-            $result = $con->query("SELECT name, phone FROM contucts WHERE name LIKE '$contuctsearch%' OR phone = '$contuctsearch'");
+            $result = $con->query("SELECT name, phone FROM contacts WHERE name LIKE '$contactsearch%' OR phone = '$contactsearch'");
 
         }else{
             $ok=false;
@@ -37,7 +37,7 @@
 <!DOCTYPE>
 <html>
 <head>
-    <title>Contucts</title>
+    <title>Contacts</title>
 </head>
 <body>
 
@@ -45,12 +45,12 @@
 <!-- search bar -->
 
 <form method="GET" action="">
-    <input type="search" name="contuctsearch" placeholder="Search" value="<?php echo htmlspecialchars($contuctsearch); ?>">
+    <input type="search" name="contactsearch" placeholder="Search" value="<?php echo htmlspecialchars($contactsearch); ?>">
     <input type="submit" name="search" value="Search">
 </form>
 
 
-<!-- contucts table -->
+<!-- contacts table -->
 
 <table border="1">
     <caption>Contacts</caption>
@@ -60,11 +60,11 @@
         <th>Action</th>
     </tr>
     <?php
-        foreach($contucts as $row){
+        foreach($contacts as $row){
             echo "<tr>
                 <td>" . htmlspecialchars($row['name']) . "</td>
                 <td>" . htmlspecialchars($row['phone']) . "</td>
-                <td><a href=delete.php?id=". $row['id'] ."><input type='submit' name='delete' value='delete'></a></td>
+                <td><a href=edit.php?id=". $row['id'] .">edit</a> <a href=delete.php?id=". $row['id'] .">delete</a></td>
              </tr> ";
         }
     ?>
@@ -80,7 +80,7 @@ if($ok) {
             echo htmlspecialchars($row['name']) . ": " . htmlspecialchars($row['phone']) . "<br>";
         }
     }else{
-        echo htmlspecialchars($contuctsearch) . " is not in your contucts.";
+        echo htmlspecialchars($contactsearch) . " is not in your contacts.";
     }
 }
 
@@ -88,11 +88,11 @@ $con->close();
 ?>
 
 
-<!--new contuct-->
+<!--new contact-->
 
 <div>
     <div>
-        <h3>New Contuct</h3>
+        <h3>New Contact</h3>
     </div>
 
     <hr>

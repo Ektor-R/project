@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `contucts`
+-- Table structure for table `contacts`
 --
 
-DROP TABLE IF EXISTS `contucts`;
+DROP TABLE IF EXISTS `contacts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `contucts` (
+CREATE TABLE `contacts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   `phone` varchar(20) NOT NULL,
@@ -33,13 +33,13 @@ CREATE TABLE `contucts` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `contucts`
+-- Dumping data for table `contacts`
 --
 
-LOCK TABLES `contucts` WRITE;
-/*!40000 ALTER TABLE `contucts` DISABLE KEYS */;
-INSERT INTO `contucts` VALUES (1,'Ektoras','6959408130',NULL),(2,'Konstantinos','6945873669',NULL),(3,'Panos','6989405112',NULL),(4,'Maria','6972891833',NULL);
-/*!40000 ALTER TABLE `contucts` ENABLE KEYS */;
+LOCK TABLES `contacts` WRITE;
+/*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
+INSERT INTO `contacts` VALUES (1,'Ektoras','6959408130',NULL),(2,'Konstantinos','6945873669',NULL),(3,'Panos','6989405112',NULL),(4,'Maria','6972891833',NULL);
+/*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-08 17:16:34
+-- Dump completed on 2019-11-22  2:25:54
