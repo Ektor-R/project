@@ -1,7 +1,7 @@
 <?php
 
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
+    if(isset($_POST['id'])){
+        $id = $_POST['id'];
 
         $con= mysqli_connect( 'localhost', 'root', '', 'project');
 

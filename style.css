@@ -1,5 +1,24 @@
+#main{
+    transition: opacity .5s;
+}
+
 caption{
     caption-side: top;
     text-align: center;
     color: black;
+}
+
+#editPanel{
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    transition: 0.5s;
+    padding: 0px;
+}
+
+#editPanel button{
+    font-size: 30px;
+    padding: 0px;
 }
